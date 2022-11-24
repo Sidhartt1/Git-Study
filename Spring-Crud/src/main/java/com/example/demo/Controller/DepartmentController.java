@@ -1,6 +1,7 @@
 package com.example.demo.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,10 +21,20 @@ public class DepartmentController
 	private DepartmentService service;
 	
 	@PostMapping("/create")
-	public void createDepartment(@RequestBody Department department)
+	public ResponseEntity<?> createDepartment(@RequestBody Department department)
 	{
 		service.createDepartment(department);
+		return new ResponseEntity<>("Department Created",HttpStatus.CREATED);
 	}
+	
+	@PutMapping("/update/{depId}")
+	public ResponseEntity<?> updateDepartment(@RequestBody Department department, @PathVariable("depId") int depId )
+	{
+		Department updatedDepartment = service.updateDepartment(department, depId);
+		return new ResponseEntity<>("Department Updated with depId =>"+updatedDepartment.getDepId(), HttpStatus.OK);
+	}
+	
+	
 	
 	
 	

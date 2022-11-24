@@ -17,5 +17,18 @@ public class DepartmentService
 	{
 		repo.save(department);
 	}
+
+	public Department updateDepartment(Department department, int depId)
+	{
+		Department expectedDepartment = repo.findById(depId).get();
+		if(expectedDepartment != null)
+		{
+			expectedDepartment.setDepName(department.getDepName());
+			repo.save(expectedDepartment);
+			return expectedDepartment;
+		}
+		return null;
+		
+	}
 	
 }
