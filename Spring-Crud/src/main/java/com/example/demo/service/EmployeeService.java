@@ -18,5 +18,16 @@ public class EmployeeService {
 			employeedao.save(emp);
 		}
 	}
+	
+	public void deletemployee(int id ) {
+        employeedao.deleteById(id);
+
+}
+
+	public void getEmployes() {
+		employeedao.findAll();
+		
+	}
+
 
 }
