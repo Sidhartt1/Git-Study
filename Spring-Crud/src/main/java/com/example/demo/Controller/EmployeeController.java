@@ -1,6 +1,8 @@
 package com.example.demo.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -10,6 +12,7 @@ import com.example.demo.model.Employee;
 import com.example.demo.service.EmployeeService;
 
 //to check merge
+
 
 
 public class EmployeeController {
@@ -25,6 +28,12 @@ public class EmployeeController {
 		employeeService.updateEmployee(e, id);
 	}
 	
-	
-
+	@DeleteMapping("/employees/{id}")
+    public void deleteEmployee(@PathVariable int id){
+            employeeService.deletemployee(id);
+    }
+	@GetMapping("/employees")
+	public void getEmployess() {
+		employeeService.getEmployes();
+	}
 }
