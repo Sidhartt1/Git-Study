@@ -13,7 +13,7 @@ public class DepartmentService
 {
 	
 	@Autowired
-	private static DepartmentRepo repo;
+	private DepartmentRepo repo;
 
 	public void createDepartment(Department department) 
 	{
@@ -33,15 +33,12 @@ public class DepartmentService
 		
 	}
 	
-	public static List<Department> getAllDepartments() {
-		List<Department> depList = null;
-		
-		depList = repo.findAll();
-	
-	return depList;
+	public  List<Department> getAllDepartments() {
+		List<Department> depList = repo.findAll();	
+		return depList;
 	}
 
-	public static Department getdepById(Integer departmentidL) {
+	public  Department getdepById(Integer departmentidL) {
 		return repo.findById(departmentidL).get();
 	}
 	

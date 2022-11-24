@@ -37,22 +37,41 @@ public class DepartmentController
 		return new ResponseEntity<>("Department Updated with depId =>"+updatedDepartment.getDepId(), HttpStatus.OK);
 	}
 
-	@GetMapping("/all")
-	public ResponseEntity<List<Department>> getAllEmployees(){
-		
-		List<Department> listOfAllDepartments = DepartmentService.getAllDepartments();
-		
-		return new ResponseEntity<List<Department>>(listOfAllDepartments, HttpStatus.OK);
+//	@GetMapping("/all")
+//	public ResponseEntity<List<Department>> getAllEmployees(){
+//		
+//		List<Department> listOfAllDepartments;
+//		try {
+//			listOfAllDepartments = DepartmentService.getAllDepartments();
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		
+//		return new ResponseEntity<List<Department>>(listOfAllDepartments, HttpStatus.OK);
+//	}
+//	
+//	@GetMapping("/all/{id}")
+//	public ResponseEntity<?> getEmpById(@PathVariable("departmentid") Integer departmentidL){
+//		
+//			Department depRetreived = DepartmentService.getdepById(departmentidL);
+//			
+//			return new ResponseEntity<Department>(depRetreived, HttpStatus.OK);
+//		
+//	}
+	
+	@GetMapping("/AllDepartments")
+	public List<Department> getAllDepartment()
+	{
+		return service.getAllDepartments();
 	}
 	
 	@GetMapping("/all/{id}")
-	public ResponseEntity<?> getEmpById(@PathVariable("departmentid") Integer departmentidL){
-		
-			Department depRetreived = DepartmentService.getdepById(departmentidL);
-			
-			return new ResponseEntity<Department>(depRetreived, HttpStatus.OK);
-		
+	public Department getEmpById(@PathVariable("id") int depId)
+	{
+		return service.getdepById(depId);
 	}
+	
 	
 	
 	

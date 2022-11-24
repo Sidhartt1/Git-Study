@@ -3,17 +3,18 @@ package com.example.demo.model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class Employee {
 	
 	@Id
 	private int empid;
 	private String ename;
-	public Employee(int empid, String ename) {
-		super();
-		this.empid = empid;
-		this.ename = ename;
-	}
+	
 	public int getEmpid() {
 		return empid;
 	}
