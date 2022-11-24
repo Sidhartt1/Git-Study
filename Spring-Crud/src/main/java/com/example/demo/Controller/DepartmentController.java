@@ -1,5 +1,11 @@
 package com.example.demo.Controller;
 
-public class DepartmentController {
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+@RestController
+@RequestMapping("/department")
+public class DepartmentController 
+{
+	
 }
